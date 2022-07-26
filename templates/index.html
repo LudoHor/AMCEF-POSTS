@@ -1,0 +1,42 @@
+{% extends 'layout.html' %} {% block body %}
+<h3 class="text-center text-muted mb-3"><a href='{{ url_for("index") }}'>AMCEF - POSTS</a></h3>
+<div class="row">
+    <div class="col-4">
+        <form class="form-inline" action='{{url_for("seach_user_id")}}'>
+            <i class="fas fa-search" aria-hidden="true"></i>
+            <input class="form-control form-control-sm ml-3 w-75" type="text" name="userId" placeholder="Search by UserID" aria-label="Search" />
+        </form>
+    </div>
+    <div class="col-4">
+        <form class="form-inline" action='{{url_for("seach_post_id")}}'>
+            <i class="fas fa-search" aria-hidden="true"></i>
+            <input class="form-control form-control-sm ml-3 w-75" type="text" name="pId" placeholder="Search by post ID" aria-label="Search" />
+        </form>
+    </div>
+    <div class="col">
+        <p class="text-right"><a href='{{url_for("add_user")}}' class="btn btn-success">+Add User</a></p>
+    </div>
+</div>
+<table class="table table-bordered">
+    <thead>
+        <th>ID</th>
+        <th>UserID</th>
+        <th>Title</th>
+        <th>Body</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </thead>
+    <tbody>
+        {% for row in datas %}
+        <tr>
+            <td>{{row.id}}</td>
+            <td>{{row.userId}}</td>
+            <td>{{row.title}}</td>
+            <td>{{row.body}}</td>
+            <td><a href='{{url_for("edit_user",uid=row.pk_id)}}' class="btn btn-primary">Edit</a></td>
+            <td><a href='{{url_for("delete_user",uid=row.pk_id)}}' class="btn btn-danger" onclick='return confirm("Are You Sure")'>Delete</a></td>
+        </tr>
+        {%endfor%}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'layout.html' %} {% block body %}
+<div class="row">
+    <div class="col-5 mx-auto">
+        <h3>Add user</h3>
+        <hr />
+        <form method="post" action='{{url_for("add_user")}}'>
+            <div class="form-group">
+                <label>Id</label>
+                <input type="number" min="1" name="id" required class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label for="inputState">User Id</label>
+                <select id="inputState" class="form-control" name="userId" required>
+                    {% for user in users %}
+                    <option value="{{user.id}}">{{user.name}} - {{user.id}}</option>
+                    {%endfor%}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>title</label>
+                <input type="text" name="title" required class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>body</label>
+                <textarea type="text" name="body" required class="form-control"></textarea>
+            </div>
+            <input type="submit" value="Submit" class="btn btn-primary" />
+        </form>
+    </div>
+</div>
+{% endblock %}
