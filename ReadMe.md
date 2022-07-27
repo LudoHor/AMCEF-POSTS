@@ -48,11 +48,11 @@ python .\AMCEF_APP.py
 Create container
 
 ```bash
-docker build --tag AMCEF-docker .
+docker build --tag amcef-docker .
 ```
 
 Run the container
 
 ```bash
-docker run -d -p 5000:5000 AMCEF-docker
+docker run -d -p 5000:5000 amcef-docker
 ```
