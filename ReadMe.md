@@ -35,8 +35,24 @@ If you want to run REST API run
 python .\AMCEF_REST_API.py
 ```
 
+Documentation is available on http://127.0.0.1:5000/doc
+
 If you want to run REST API with UI run
 
 ```bash
 python .\AMCEF_APP.py
+```
+
+## Docker Container
+
+Create container
+
+```bash
+docker build --tag AMCEF-docker .
+```
+
+Run the container
+
+```bash
+docker run -d -p 5000:5000 AMCEF-docker
 ```
